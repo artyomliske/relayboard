@@ -8,6 +8,11 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { registerRelayboardWebhook } from "../relayboardWebhook";
+import { processDueRetries } from "../relayboard";
+import { sdk } from "./sdk";
+import { registerRelayboardEventStream } from "../eventStream";
+import { startRetryWorker } from "../retryWorker";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -31,6 +36,23 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  registerRelayboardWebhook(app);
+  registerRelayboardEventStream(app);
+  app.post("/api/scheduled/process-retries", async (req, res) => {
+    try {
+      const user = await sdk.authenticateRequest(req);
+      if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only" });
+      const result = await processDueRetries();
+      return res.json({ ok: true, ...result, taskUid: user.taskUid });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Retry processing failed";
+      return res.status(500).json({
+        error: message,
+        timestamp: new Date().toISOString(),
+        context: { path: "/api/scheduled/process-retries" },
+      });
+    }
+  });
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -60,6 +82,7 @@ async function startServer() {
 
   server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
+    if (process.env.NODE_ENV === "production") startRetryWorker();
   });
 }
 

@@ -1,0 +1,25 @@
+# Project TODO
+
+- [x] Define the event, attempt, approval, and audit domain model for the required lifecycle.
+- [x] Add database schema and migrations for event inboxes, processing attempts, approvals, and audit records.
+- [x] Implement webhook ingestion with HMAC verification, schema validation, and idempotency-key deduplication.
+- [x] Implement the exact event status lifecycle: received → processing → completed / failed / pending_approval.
+- [x] Implement retry configuration, exponential backoff metadata, and a dead-letter queue for exhausted events.
+- [x] Implement human-in-the-loop approval and rejection with an operator comment and audit record.
+- [x] Implement event replay with a new correlation ID and safe non-duplicating execution semantics.
+- [x] Build the operations dashboard with a real-time event feed and exact-status filtering.
+- [x] Build per-event detail timeline, masked payload viewer, and complete audit trail.
+- [x] Build the synthetic demo generator for exactly form submissions, payments, Telegram messages, and downstream API failures.
+- [x] Create an elegant, responsive, accessible visual system for all listed surfaces.
+- [x] Add unit tests for core lifecycle, deduplication, retries, approvals, replay, and payload masking.
+- [x] Verify the interface, server behavior, tests, and responsive layouts before delivery.
+- [x] Add and pass a lightweight HMAC configuration test using `RELAYBOARD_WEBHOOK_SECRET`.
+- [x] Add the first server-side event processing contract and route tests before wiring the dashboard.
+- [x] Wire due-retry processing to an actual scheduled execution mechanism and verify automatic retry behavior.
+- [x] Upgrade the event inbox from timed polling to a live server-sent event feed.
+- [x] Make replay side-effect protection explicit, deterministic, and covered by a dedicated test.
+- [x] Prove that the persistent retry worker advances a due event without a manual worker-cycle call.
+- [x] Add and pass a lightweight HMAC configuration test using `RELAYBOARD_WEBHOOK_SECRET`.
+- [x] Add the first server-side event processing contract and route tests before wiring the dashboard.
+- [x] Add automated webhook route tests for valid HMAC, invalid signatures, schema validation and idempotent duplicates.
+- [x] Add automated tRPC action tests for demo generation, approval decisions and replay.
