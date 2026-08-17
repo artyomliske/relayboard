@@ -24,9 +24,9 @@
 - [x] Add automated webhook route tests for valid HMAC, invalid signatures, schema validation and idempotent duplicates.
 - [x] Add automated tRPC action tests for demo generation, approval decisions and replay.
 - [x] Prepare a static GitHub Pages landing page and Pages deployment workflow.
-- [ ] Create a public GitHub repository and push Relayboard source code without secrets.
+- [x] Create a public GitHub repository and push Relayboard source code without secrets.
 - [ ] Verify the GitHub Pages deployment and provide public repository and Pages URLs.
 - [x] Capture dashboard screenshots suitable for the public README.
 - [x] Write a polished README with project overview, features, architecture and installation steps.
-- [ ] Verify and publish the README update to GitHub.
+- [x] Verify and publish the README update to GitHub.
 - [x] Remove personal account details from the public README screenshot before publishing.
