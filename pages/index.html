@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Relayboard is an operator-grade control plane for secure webhook event processing." />
+    <title>Relayboard — Webhook Control Plane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <nav class="nav shell" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Relayboard home"><span class="brand-mark"><i></i><i></i><i></i></span>Relayboard</a>
+        <a class="source-link" href="https://github.com/artyomliske/relayboard">View source <span>↗</span></a>
+      </nav>
+
+      <section class="hero shell" id="top">
+        <div class="signal" aria-label="Secure webhook control plane"><span></span>Webhook control plane</div>
+        <h1>Everything in motion.<br /><em>Nothing out of sight.</em></h1>
+        <p class="lede">Relayboard gives operators full visibility and control over signed webhook events — from verified ingress to final, auditable completion.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/artyomliske/relayboard">Explore the code <span>→</span></a>
+          <a class="button ghost" href="#flow">See the event flow</a>
+        </div>
+        <div class="endpoint" aria-label="Example webhook endpoint"><span class="terminal-dot"></span><code>POST /api/webhooks/events</code><span class="verified">HMAC verified</span></div>
+      </section>
+
+      <section class="rail shell" id="flow" aria-label="Event lifecycle">
+        <div class="rail-heading"><p class="eyebrow">Operator-grade event flow</p><p>One traceable path from ingress to outcome.</p></div>
+        <div class="flow">
+          <article><span class="node mint">01</span><h2>Ingest</h2><p>Verify HMAC, validate schema, and deduplicate by idempotency key.</p></article>
+          <div class="line" aria-hidden="true"><i></i></div>
+          <article><span class="node blue">02</span><h2>Process</h2><p>Track attempts, apply exponential backoff, and retain every transition.</p></article>
+          <div class="line" aria-hidden="true"><i></i></div>
+          <article><span class="node violet">03</span><h2>Control</h2><p>Pause for written approval, replay safely, and inspect the audit trail.</p></article>
+        </div>
+      </section>
+
+      <section class="capabilities shell" aria-label="Relayboard capabilities">
+        <div class="section-title"><p class="eyebrow">Built for operational certainty</p><h2>A compact control plane,<br />not another black box.</h2></div>
+        <div class="capability-grid">
+          <article><span class="cap-icon">⌁</span><h3>Event inbox</h3><p>Trace <code>received</code>, <code>processing</code>, <code>completed</code>, <code>failed</code>, and <code>pending_approval</code> in one view.</p></article>
+          <article><span class="cap-icon">◌</span><h3>Retry &amp; DLQ</h3><p>Use persistent retry processing, exponential backoff, and a dead-letter queue for exhausted events.</p></article>
+          <article><span class="cap-icon">✓</span><h3>Human approval</h3><p>Pause execution for an operator decision, record the written rationale, then continue or reject.</p></article>
+          <article><span class="cap-icon">◫</span><h3>Protected replay</h3><p>Give every replay a new correlation ID while retaining an execution key that prevents duplicate side effects.</p></article>
+        </div>
+      </section>
+
+      <section class="demo shell" aria-label="Synthetic event examples">
+        <div><p class="eyebrow">Ready to demonstrate</p><h2>Four synthetic event types.<br /><span>Zero real integrations.</span></h2></div>
+        <div class="demo-list">
+          <span><b>01</b> Form submissions</span><span><b>02</b> Payments</span><span><b>03</b> Telegram messages</span><span><b>04</b> Downstream API failures</span>
+        </div>
+      </section>
+
+      <section class="note shell">
+        <span class="note-icon">i</span><p><strong>About this page.</strong> GitHub Pages presents the static Relayboard project page. The full control plane uses an always-on Node backend for signed ingestion, persistent retries, and live event updates.</p>
+      </section>
+    </main>
+    <footer class="footer shell"><span>RELAYBOARD / 2026</span><a href="https://github.com/artyomliske/relayboard">GitHub <span>↗</span></a></footer>
+  </body>
+</html>

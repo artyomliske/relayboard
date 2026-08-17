@@ -23,3 +23,6 @@
 - [x] Add the first server-side event processing contract and route tests before wiring the dashboard.
 - [x] Add automated webhook route tests for valid HMAC, invalid signatures, schema validation and idempotent duplicates.
 - [x] Add automated tRPC action tests for demo generation, approval decisions and replay.
+- [x] Prepare a static GitHub Pages landing page and Pages deployment workflow.
+- [ ] Create a public GitHub repository and push Relayboard source code without secrets.
+- [ ] Verify the GitHub Pages deployment and provide public repository and Pages URLs.
