@@ -174,9 +174,9 @@ pnpm check
 
 The automated suite covers HMAC verification, payload masking, idempotency, status changes, approval decisions, retry/dead-letter behavior, autonomous worker execution, replay protection, webhook request responses, and public tRPC action paths.
 
-## GitHub Pages
+## Project showcase
 
-The [`pages/`](pages/) directory contains a static project landing page and a GitHub Actions workflow. It is intentionally separate from the application: GitHub Pages cannot run the Node backend required for signed ingestion, server-sent updates, or the persistent retry worker.
+The static project landing page is published at [artyomliske.github.io/relayboard](https://artyomliske.github.io/relayboard/); its source remains in [`pages/`](pages/). It is intentionally separate from the application because a static host cannot run the Node backend required for signed ingestion, server-sent updates, or the persistent retry worker.
 
 ## License
 
