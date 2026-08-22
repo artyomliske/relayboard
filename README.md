@@ -176,7 +176,7 @@ The automated suite covers HMAC verification, payload masking, idempotency, stat
 
 ## Project showcase
 
-The static project landing page is published at [artyomliske.github.io/relayboard](https://artyomliske.ru/#case-relayboard); its source remains in [`pages/`](pages/). It is intentionally separate from the application because a static host cannot run the Node backend required for signed ingestion, server-sent updates, or the persistent retry worker.
+The static project landing page lives in [`pages/`](pages/) and is presented as a case study at [artyomliske.ru](https://artyomliske.ru/#case-relayboard). It is intentionally separate from the application because a static host cannot run the Node backend required for signed ingestion, server-sent updates, or the persistent retry worker.
 
 ## License
 
